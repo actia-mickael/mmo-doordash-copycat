@@ -19,6 +19,9 @@ jobs:
       - name: Run container
         run: docker run -d --name kork-container -p 8080:8080 kork-app
 
+      - name: Check container logs
+        run: docker logs kork-container
+
       - name: Wait for container to be ready
         run: sleep 5
 

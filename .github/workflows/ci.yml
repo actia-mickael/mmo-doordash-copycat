@@ -17,16 +17,16 @@ jobs:
         run: docker build -t kork-app .
 
       - name: Run container
-        run: docker run -d --name kork-container -p 8080:8080 kork-app
+        run: docker run -d --name kork-container -p 8090:8090 kork-app
 
       - name: Wait for container to be ready
         run: sleep 5
 
       - name: Test endpoints
         run: |
-          curl -f http://localhost:8080/health || exit 1
-          curl -f http://localhost:8080/api/endpoint1 || exit 1
-          curl -f http://localhost:8080/api/endpoint2 || exit 1
+          curl -f http://localhost:8090/health || exit 1
+          curl -f http://localhost:8090/api/endpoint1 || exit 1
+          curl -f http://localhost:8090/api/endpoint2 || exit 1
 
       - name: Stop and clean container
         if: always()

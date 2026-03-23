@@ -16,6 +16,12 @@ jobs:
       - name: Build Docker image
         run: docker build -t kork-app .
 
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run unit and integration tests
+        run: pytest tests/ -v
+        
       - name: Run container
         run: docker run -d --name kork-container -p 8080:8090 kork-app
 

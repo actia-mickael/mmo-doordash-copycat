@@ -24,9 +24,10 @@ jobs:
 
       - name: Test endpoints
         run: |
-          curl -f http://localhost:8080/health || exit 1
-          curl -f http://localhost:8080/api/endpoint1 || exit 1
-          curl -f http://localhost:8080/api/endpoint2 || exit 1
+          curl -f http://localhost:8080/
+          curl -f http://localhost:8080/status/
+          curl -f http://localhost:8080/estimate-time/5
+          curl -X POST http://localhost:8080/calculate-fee/ -H "Content-Type: application/json" -d '{"distance_km": 10, "weight_kg": 2}'
 
       - name: Stop and clean container
         if: always()

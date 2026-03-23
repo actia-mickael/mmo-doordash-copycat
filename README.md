@@ -1,7 +1,6 @@
-# DoorDash Delivery Fee Service (FastAPI)
+ # mmo-DoorDash-Copycat
 
-This is a simple FastAPI application that simulates DoorDash's delivery fee calculation service.
-It provides three endpoints to calculate delivery fees, estimate delivery time, and check the service status.
+A Python-based FastAPI application that emulates DoorDash's delivery fee calculation service. This project offers three endpoints for calculating delivery fees, estimating delivery time, and checking the service status.
 
 ## API Endpoints
 
@@ -10,7 +9,43 @@ It provides three endpoints to calculate delivery fees, estimate delivery time, 
 3. **GET /estimate-time/{distance_km}** - Estimate delivery time based on distance
 4. **GET /status/** - Check the service status
 
-## Running the App
+## Prerequisites
+
+- Python 3.8 or higher
+- YAML
+- Markdown
+
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/mmo-doordash-copycat.git
+    ```
+
+2. Navigate to the project directory:
+    ```bash
+    cd mmo-doordash-copycat
+    ```
+
+3. Install the required packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Usage
+
+1. Run the application:
+    ```bash
+    uvicorn app.main:app --host 0.0.0.0 --port 8080
+    ```
+
+2. Access the application:
+    - Go to `http://localhost:8080` for the welcome message.
+    - Use `/calculate-fee/` to calculate fees, `/estimate-time/{distance_km}` to estimate delivery times, and `/status/` to check the status.
+
+## Docker Support
+
+The project includes a `Dockerfile` for easy deployment. To build and run the Docker image:
 
 1. Build the Docker image:
     ```bash
@@ -22,23 +57,18 @@ It provides three endpoints to calculate delivery fees, estimate delivery time, 
     docker run -d -p 8080:8080 doordash/delivery-fee-service
     ```
 
-3. Access the application:
-    - Go to `http://localhost:8080` for the welcome message.
-    - Use `/calculate-fee/` to calculate fees, `/estimate-time/{distance_km}` to estimate delivery times, and `/status/` to check the status.
+## Testing
 
-## Example Request
+The project includes test cases for integration and functionality testing. Run the tests using Pytest:
 
-### POST /calculate-fee/
-```json
-{
-  "distance_km": 10.5,
-  "weight_kg": 2.0
-}
+```bash
+pytest tests
 ```
 
-### Example Response
-```json
-{
-  "delivery_fee": 22.75
-}
-```
+## Contributing
+
+Feel free to contribute to this project! If you have any suggestions, issues, or pull requests, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under [MIT License](LICENSE).
